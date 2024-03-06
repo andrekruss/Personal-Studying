@@ -1,7 +1,11 @@
 # folders
+env
 .vscode
 .vs
 bin
 obj
 Beecrowd/
 beecrowd/
+
+# file extensions
+*.csv
