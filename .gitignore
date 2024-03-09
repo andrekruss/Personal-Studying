@@ -6,6 +6,7 @@ bin
 obj
 Beecrowd/
 beecrowd/
+target
 
 # file extensions
 *.csv

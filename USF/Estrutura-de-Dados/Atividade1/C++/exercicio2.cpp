@@ -1,3 +1,10 @@
+/*
+Exercício 2 - 
+Faça uma função em C que receba como parâmetro 
+os valores de a, b e c de uma equação de 2º grau 
+e retorne o delta da função.
+*/
+
 #include <iostream>
 
 int calculaDelta(int a, int b, int c);
