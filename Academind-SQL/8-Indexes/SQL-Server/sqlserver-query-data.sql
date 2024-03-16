@@ -1,0 +1,15 @@
+-- using SHOWPLAN options
+-- users with salary > 12000
+
+-- use one option at a time!
+SET SHOWPLAN_TEXT ON;
+SET SHOWPLAN_ALL ON;
+SET SHOWPLAN_XML ON;
+
+SELECT * FROM users
+WHERE salary > 12000;
+
+SET SHOWPLAN_TEXT OFF;
+SET SHOWPLAN_ALL OFF;
+SET SHOWPLAN_XML OFF;
+
