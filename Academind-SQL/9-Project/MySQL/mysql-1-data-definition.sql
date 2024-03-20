@@ -7,15 +7,14 @@ CREATE TABLE cities(
 
 CREATE TABLE locations(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	city_name VARCHAR(100),
+	city_name VARCHAR(100) 
+	REFERENCES cities 
+	ON DELETE RESTRICT
+	ON UPDATE CASCADE,
 	title VARCHAR(100) NOT NULL,
 	street VARCHAR(50) NOT NULL,
 	house_number VARCHAR(10) NOT NULL,
-	postal_code VARCHAR(10) NOT NULL,
-	FOREIGN KEY (city_name)
-	REFERENCES cities(name)
-	ON DELETE RESTRICT
-	ON UPDATE CASCADE
+	postal_code VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE users(
@@ -52,7 +51,7 @@ CREATE TABLE events(
 	REFERENCES locations(id)
 	ON DELETE CASCADE,
 	FOREIGN KEY (organizer_id)
-	REFERENCES organizers(id)
+	REFERENCES organizers(user_id)
 	ON DELETE CASCADE
 );
 
