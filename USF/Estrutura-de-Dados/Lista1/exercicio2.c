@@ -13,6 +13,7 @@ typedef struct Produto
 } Produto;
 
 Produto* produto_maior_preco(Produto* produtos, int n);
+Produto* produto_maior_quantidade(Produto* produtos, int n);
 
 int main() {
 
@@ -55,10 +56,17 @@ int main() {
     //     printf("Preco: %.2f\n", produtos[i].preco);
     // }
 
-    Produto* p = produto_maior_preco(produtos, n);
+    Produto* prod_maior_preco = produto_maior_preco(produtos, n);
     printf("\nPRODUTO COM MAIOR PRECO: \n");
-    printf("Nome: %s\n", p->nome);
-    printf("Preco: %.2f\n", p->preco);
+    printf("Nome: %s\n", prod_maior_preco->nome);
+    printf("Preco: %.2f\n", prod_maior_preco->preco);
+
+    Produto* prod_maior_qtd = produto_maior_quantidade(produtos, n);
+    printf("\nPRODUTO COM MAIOR QUANTIDADE DISPONIVEL: \n");
+    printf("Nome: %s\n", prod_maior_qtd->nome);
+    printf("Qtd: %d\n", prod_maior_qtd->qtd_disponivel);
+
+    free(produtos);
 
     return 0;
 }
@@ -72,6 +80,22 @@ Produto* produto_maior_preco(Produto* produtos, int n) {
     for (i = 1; i < n; i++) {
         if(produtos[i].preco > maior_preco) {
             maior_preco = produtos[i].preco;
+            p = &produtos[i];
+        }
+    }
+
+    return p;
+}
+
+Produto* produto_maior_quantidade(Produto* produtos, int n){
+
+    int i;
+    int maior_qtd = produtos[0].qtd_disponivel;
+    Produto* p = &produtos[0];
+
+    for (i = 1; i < n; i++) {
+        if(produtos[i].qtd_disponivel > maior_qtd) {
+            maior_qtd = produtos[i].qtd_disponivel;
             p = &produtos[i];
         }
     }
